@@ -105,7 +105,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-muted-foreground">
                 <Mail size={16} className="text-primary" />
-                <span>hello@skillbridge.agency</span>
+                <span>theskillbridge@gmail.com</span>
               </li>
               <li className="flex items-center gap-3 text-muted-foreground">
                 <Phone size={16} className="text-primary" />
