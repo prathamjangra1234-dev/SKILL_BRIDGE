@@ -1,0 +1,45 @@
+"use client"
+
+import { useEffect, useState, useRef, type RefObject } from "react"
+
+interface UseInViewOptions {
+  threshold?: number
+  rootMargin?: string
+  triggerOnce?: boolean
+}
+
+interface UseInViewReturn {
+  ref: RefObject<HTMLElement | null>
+  isInView: boolean
+}
+
+export function useInView(options: UseInViewOptions = {}): UseInViewReturn {
+  const { threshold = 0.1, rootMargin = "0px", triggerOnce = true } = options
+  const ref = useRef<HTMLElement | null>(null)
+  const [isInView, setIsInView] = useState(false)
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true)
+          if (triggerOnce) {
+            observer.unobserve(element)
+          }
+        } else if (!triggerOnce) {
+          setIsInView(false)
+        }
+      },
+      { threshold, rootMargin }
+    )
+
+    observer.observe(element)
+
+    return () => observer.disconnect()
+  }, [threshold, rootMargin, triggerOnce])
+
+  return { ref, isInView }
+}
