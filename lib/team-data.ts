@@ -175,6 +175,43 @@ export const teamMembers: TeamMember[] = [
       },
     ],
   },
+  {
+    id: "shikha",
+    name: "Shikha",
+    role: "Agency Manager",
+    bio: "Shikha is the organizational force behind SkillBridge Agency. As our Agency Manager, she oversees day-to-day operations, client relations, project coordination, and ensures everything runs smoothly. Her exceptional management skills and attention to detail keep the team aligned and projects on track.",
+    phone: "+91 9416178902",
+    avatar: "S",
+    skills: [
+      { name: "Project Management", level: 95 },
+      { name: "Client Relations", level: 92 },
+      { name: "Team Coordination", level: 94 },
+      { name: "Business Operations", level: 90 },
+      { name: "Communication", level: 95 },
+      { name: "Strategic Planning", level: 88 },
+    ],
+    social: {
+      instagram: "#",
+      linkedin: "#",
+    },
+    projects: [
+      {
+        title: "Agency Operations",
+        description: "Streamlined agency workflows and processes",
+        category: "Management",
+      },
+      {
+        title: "Client Onboarding",
+        description: "Developed comprehensive client onboarding system",
+        category: "Management",
+      },
+      {
+        title: "Team Building",
+        description: "Built and scaled the SkillBridge team",
+        category: "Management",
+      },
+    ],
+  },
 ]
 
 export function getTeamMember(id: string): TeamMember | undefined {
