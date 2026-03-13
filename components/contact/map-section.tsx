@@ -54,7 +54,7 @@ export function MapSection() {
             <div className="absolute bottom-6 left-6 right-6 sm:right-auto sm:max-w-sm">
               <div className="glass-card rounded-xl p-4">
                 <h3 className="font-semibold text-foreground mb-1">SkillBridge Agency</h3>
-                <p className="text-sm text-muted-foreground">Mumbai, Maharashtra, India</p>
+                <p className="text-sm text-muted-foreground">Sonipat, Haryana, India</p>
               </div>
             </div>
           </div>

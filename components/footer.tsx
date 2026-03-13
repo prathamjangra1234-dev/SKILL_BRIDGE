@@ -109,11 +109,11 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-muted-foreground">
                 <Phone size={16} className="text-primary" />
-                <span>+91 98765 43210</span>
+                <span>+91 9991153921</span>
               </li>
               <li className="flex items-start gap-3 text-muted-foreground">
                 <MapPin size={16} className="text-primary mt-1" />
-                <span>Mumbai, Maharashtra, India</span>
+                <span>Sonipat, Haryana, India</span>
               </li>
             </ul>
           </div>

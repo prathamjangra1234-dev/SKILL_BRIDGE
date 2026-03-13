@@ -13,14 +13,14 @@ const contactInfo = [
   },
   {
     icon: Phone,
-    label: "Phone",
-    value: "+91 98765 43210",
-    href: "tel:+919876543210",
+    label: "Phone (Pratham)",
+    value: "+91 9991153921",
+    href: "tel:+919991153921",
   },
   {
     icon: MapPin,
     label: "Office",
-    value: "Mumbai, Maharashtra, India",
+    value: "Sonipat, Haryana, India",
     href: "#map",
   },
 ]
@@ -73,7 +73,7 @@ export function ContactInfo() {
           asChild
           className="w-full bg-green-600 hover:bg-green-700 text-white"
         >
-          <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/919991153921" target="_blank" rel="noopener noreferrer">
             <MessageCircle className="mr-2" size={20} />
             Chat on WhatsApp
           </a>
@@ -102,16 +102,12 @@ export function ContactInfo() {
         <h3 className="text-lg font-semibold text-foreground mb-4">Business Hours</h3>
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">
-            <span className="text-muted-foreground">Monday - Friday</span>
-            <span className="text-foreground">9:00 AM - 6:00 PM</span>
+            <span className="text-muted-foreground">Monday - Sunday</span>
+            <span className="text-foreground">9:00 AM - 9:00 PM</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-muted-foreground">Saturday</span>
-            <span className="text-foreground">10:00 AM - 4:00 PM</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-muted-foreground">Sunday</span>
-            <span className="text-foreground">Closed</span>
+            <span className="text-accent font-medium">Open All Week</span>
+            <span className="text-accent font-medium">7 Days</span>
           </div>
         </div>
       </div>

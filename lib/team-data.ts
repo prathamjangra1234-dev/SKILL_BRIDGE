@@ -3,6 +3,7 @@ export interface TeamMember {
   name: string
   role: string
   bio: string
+  phone: string
   skills: { name: string; level: number }[]
   avatar: string
   social: {
@@ -24,13 +25,21 @@ export const teamMembers: TeamMember[] = [
     name: "Pratham",
     role: "Founder & Frontend Developer",
     bio: "Pratham is the visionary founder of SkillBridge Agency. With a passion for clean code and pixel-perfect designs, he leads the team in creating exceptional digital experiences. His expertise in modern frontend technologies ensures every project meets the highest standards of quality and performance.",
+    phone: "+91 9991153921",
     avatar: "P",
     skills: [
-      { name: "HTML/CSS", level: 95 },
-      { name: "JavaScript", level: 90 },
-      { name: "React/Next.js", level: 88 },
+      { name: "HTML5/CSS3", level: 95 },
+      { name: "JavaScript/TypeScript", level: 92 },
+      { name: "React.js", level: 90 },
+      { name: "Next.js", level: 88 },
+      { name: "Tailwind CSS", level: 94 },
+      { name: "Bootstrap", level: 90 },
+      { name: "SASS/SCSS", level: 85 },
+      { name: "Vue.js", level: 80 },
+      { name: "Node.js", level: 78 },
+      { name: "Git/GitHub", level: 88 },
       { name: "UI/UX Design", level: 85 },
-      { name: "Tailwind CSS", level: 92 },
+      { name: "Responsive Design", level: 95 },
     ],
     social: {
       instagram: "#",
@@ -61,6 +70,7 @@ export const teamMembers: TeamMember[] = [
     name: "Nishant",
     role: "Video Editor",
     bio: "Nishant brings stories to life through video. As our lead video editor, he specializes in creating engaging content for social media, YouTube, and promotional campaigns. His creative eye and technical expertise make every video project a masterpiece.",
+    phone: "+91 8198935640",
     avatar: "N",
     skills: [
       { name: "Video Editing", level: 95 },
@@ -97,6 +107,7 @@ export const teamMembers: TeamMember[] = [
     name: "Harshit",
     role: "Backend Developer",
     bio: "Harshit is the backbone of our technical operations. With deep expertise in server-side development, databases, and API design, he ensures our applications are robust, secure, and scalable. His attention to detail guarantees reliable performance.",
+    phone: "+91 7497092039",
     avatar: "H",
     skills: [
       { name: "Node.js", level: 92 },
@@ -132,6 +143,7 @@ export const teamMembers: TeamMember[] = [
     name: "Ansh",
     role: "Template Designer",
     bio: "Ansh crafts beautiful, functional website templates that serve as the foundation for stunning digital experiences. His expertise in UI layouts and web components ensures every design is both aesthetically pleasing and highly usable.",
+    phone: "+91 9350933069",
     avatar: "A",
     skills: [
       { name: "Website Templates", level: 94 },

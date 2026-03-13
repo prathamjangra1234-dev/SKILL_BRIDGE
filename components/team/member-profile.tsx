@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowLeft, Mail, Instagram, Twitter, Linkedin, Github } from "lucide-react"
+import { ArrowLeft, Mail, Phone, Instagram, Twitter, Linkedin, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/use-in-view"
 import type { TeamMember } from "@/lib/team-data"
@@ -59,9 +59,18 @@ export function MemberProfile({ member }: MemberProfileProps) {
                 <p className={`text-xl font-medium bg-gradient-to-r ${gradient} bg-clip-text text-transparent mb-4`}>
                   {member.role}
                 </p>
-                <p className="text-muted-foreground leading-relaxed mb-6 max-w-2xl">
+                <p className="text-muted-foreground leading-relaxed mb-4 max-w-2xl">
                   {member.bio}
                 </p>
+
+                {/* Phone number */}
+                <a 
+                  href={`tel:${member.phone.replace(/\s/g, '')}`}
+                  className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors mb-6"
+                >
+                  <Phone size={18} className="text-primary" />
+                  <span className="font-medium">{member.phone}</span>
+                </a>
 
                 {/* Social icons */}
                 <div className="flex items-center justify-center lg:justify-start gap-4">
