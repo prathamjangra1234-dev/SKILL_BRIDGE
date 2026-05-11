@@ -73,7 +73,7 @@ export function Services() {
     <section className="py-24 relative overflow-hidden" ref={ref}>
       {/* Premium background elements */}
       <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-primary/20 to-accent/10 rounded-full blur-3xl animate-float opacity-40" />
-      <div className="absolute bottom-32 right-10 w-96 h-96 bg-gradient-to-l from-accent/20 to-secondary/10 rounded-full blur-3xl animate-float opacity-40" style={{ animationDelay: "-4s" }} />
+      <div className="absolute bottom-32 right-10 w-96 h-96 bg-gradient-to-l from-accent/20 to-secondary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "-4s" }} opacity-40" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
