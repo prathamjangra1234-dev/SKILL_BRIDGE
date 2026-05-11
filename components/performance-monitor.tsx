@@ -4,43 +4,12 @@ import { useEffect } from 'react'
 
 /**
  * Performance monitoring component
- * Tracks Core Web Vitals and custom performance metrics
+ * Tracks device capabilities for animation optimization
  */
 export function PerformanceMonitor() {
   useEffect(() => {
     // Only run in browser
     if (typeof window === 'undefined') return
-
-    // Monitor Core Web Vitals
-    if ('web-vital' in window) {
-      try {
-        // Import dynamically to reduce bundle size
-        import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-          getCLS(console.log)
-          getFID(console.log)
-          getFCP(console.log)
-          getLCP(console.log)
-          getTTFB(console.log)
-        })
-      } catch (e) {
-        // Vitals not available
-      }
-    }
-
-    // Monitor memory usage
-    if (performance.memory) {
-      const checkMemory = () => {
-        const { jsHeapSizeLimit, totalJSHeapSize, usedJSHeapSize } = performance.memory
-        const usage = (usedJSHeapSize / jsHeapSizeLimit) * 100
-        
-        if (usage > 90) {
-          console.warn('[Performance] Memory usage is high:', usage.toFixed(2) + '%')
-        }
-      }
-      
-      const memoryInterval = setInterval(checkMemory, 5000)
-      return () => clearInterval(memoryInterval)
-    }
 
     // Monitor long tasks
     if ('PerformanceObserver' in window) {
@@ -75,8 +44,8 @@ export function OptimizeAnimations() {
   useEffect(() => {
     // Detect if device has high performance
     const isHighPerformance =
-      navigator.deviceMemory && navigator.deviceMemory >= 4 ||
-      navigator.hardwareConcurrency && navigator.hardwareConcurrency >= 4
+      ((navigator as any).deviceMemory && (navigator as any).deviceMemory >= 4) ||
+      (navigator.hardwareConcurrency && navigator.hardwareConcurrency >= 4)
 
     // Detect reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches

@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Production-grade optimizations
-  swcMinify: true,
-  compress: true,
-  productionBrowserSourceMaps: false,
-  
+  // Turbopack configuration (Next.js 16+)
+  turbopack: {
+    resolveAlias: {},
+  },
+
   // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -31,6 +31,10 @@ const nextConfig = {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
           },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
         ],
       },
       {
@@ -47,56 +51,27 @@ const nextConfig = {
 
   // Redirects for performance
   redirects: async () => {
-    return [
-      {
-        source: '/old-path',
-        destination: '/new-path',
-        permanent: true,
-      },
-    ]
+    return []
   },
 
-  // Webpack optimization
-  webpack: (config, { isServer }) => {
-    // Code splitting optimization
-    config.optimization.splitChunks.cacheGroups = {
-      ...config.optimization.splitChunks.cacheGroups,
-      radix: {
-        test: /[\\/]node_modules[\\/]@radix-ui[\\/]/,
-        name: 'radix-ui',
-        priority: 10,
-        reuseExistingChunk: true,
-      },
-      stripe: {
-        test: /[\\/]node_modules[\\/]@stripe[\\/]/,
-        name: 'stripe',
-        priority: 10,
-        reuseExistingChunk: true,
-      },
-      supabase: {
-        test: /[\\/]node_modules[\\/]@supabase[\\/]/,
-        name: 'supabase',
-        priority: 10,
-        reuseExistingChunk: true,
-      },
-    }
+  // React compiler for optimized rendering (Next.js 16+)
+  reactCompiler: true,
 
-    return config
+  // Experimental features
+  experimental: {
+    optimizePackageImports: [
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-dropdown-menu',
+      '@radix-ui/react-popover',
+      '@radix-ui/react-slot',
+      'lucide-react',
+      'recharts',
+    ],
   },
 
   // TypeScript optimization
   typescript: {
     tsconfigPath: './tsconfig.json',
-  },
-
-  // React compiler for optimized rendering (Next.js 16+)
-  experimental: {
-    reactCompiler: true,
-    optimizePackageImports: [
-      '@radix-ui',
-      'lucide-react',
-      'recharts',
-    ],
   },
 
   // Logging
@@ -105,6 +80,19 @@ const nextConfig = {
       fullUrl: true,
     },
   },
+
+  // Enable SWR and caching optimizations
+  onDemandEntries: {
+    maxInactiveAge: 25 * 1000,
+    pagesBufferLength: 5,
+  },
+
+  // Optimize production
+  productionBrowserSourceMaps: false,
+  compress: true,
+
+  // Generate ETags for better caching
+  generateEtags: true,
 }
 
 module.exports = nextConfig
