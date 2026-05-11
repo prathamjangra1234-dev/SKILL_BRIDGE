@@ -31,6 +31,9 @@ export const viewport: Viewport = {
   themeColor: '#0a0a1a',
   width: 'device-width',
   initialScale: 1,
+  userScalable: true,
+  colorScheme: 'dark',
+  interactiveWidget: 'resizes-visual',
 }
 
 export default function RootLayout({

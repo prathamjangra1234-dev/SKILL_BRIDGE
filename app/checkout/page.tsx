@@ -76,11 +76,8 @@ export default function CheckoutPage() {
 
       if (checkoutError) throw new Error(checkoutError)
 
-      const stripe = await stripePromise
-      if (!stripe) throw new Error('Stripe failed to load')
-
-      const { error: stripeError } = await stripe.redirectToCheckout({ sessionId })
-      if (stripeError) throw stripeError
+      // Redirect to Stripe Checkout using the session ID
+      window.location.href = `https://checkout.stripe.com/pay/${sessionId}`
     } catch (error: any) {
       setError(error.message || 'Failed to process payment')
     } finally {
