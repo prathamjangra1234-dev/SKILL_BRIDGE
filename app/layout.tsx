@@ -39,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark bg-background">
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased min-h-screen`}>
         <Navbar />
         <main>
