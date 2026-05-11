@@ -37,22 +37,23 @@ export function ContactForm() {
     return (
       <div 
         ref={ref as React.RefObject<HTMLDivElement>}
-        className={`glass-card rounded-3xl p-8 md:p-12 flex flex-col items-center justify-center min-h-[500px] transition-all duration-700 ${
+        className={`glass-premium rounded-3xl p-8 md:p-12 flex flex-col items-center justify-center min-h-[500px] transition-all duration-700 animate-scale-in ${
           isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mb-6">
-          <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="w-24 h-24 rounded-full bg-gradient-to-br from-emerald-400 via-green-500 to-teal-600 flex items-center justify-center mb-6 animate-pulse-glow hover-glow">
+          <svg className="w-12 h-12 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-foreground mb-3">Message Sent!</h3>
-        <p className="text-muted-foreground text-center max-w-md">
-          Thank you for reaching out. We&apos;ll get back to you within 24 hours.
+        <h3 className="text-3xl font-bold text-foreground mb-3 animate-fade-up">Message Sent!</h3>
+        <p className="text-muted-foreground text-center max-w-md animate-fade-up" style={{ animationDelay: "100ms" }}>
+          Thank you for reaching out. We&apos;ll get back to you within 24 hours with premium insights.
         </p>
         <Button 
           onClick={() => setIsSubmitted(false)}
-          className="mt-6"
+          className="mt-8 px-8 py-6 text-lg glass-button rounded-xl font-semibold hover:scale-110 transition-all duration-300 animate-bounce-in"
+          style={{ animationDelay: "200ms" }}
           variant="outline"
         >
           Send Another Message
@@ -64,50 +65,55 @@ export function ContactForm() {
   return (
     <div 
       ref={ref as React.RefObject<HTMLDivElement>}
-      className={`glass-card rounded-3xl p-8 md:p-12 transition-all duration-700 ${
+      className={`glass-premium rounded-3xl p-8 md:p-12 transition-all duration-700 ${
         isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
-      <h2 className="text-2xl font-bold text-foreground mb-2">Send Us a Message</h2>
-      <p className="text-muted-foreground mb-8">Fill out the form below and we&apos;ll get back to you soon.</p>
+      <div className="mb-2">
+        <h2 className="text-3xl font-bold text-foreground mb-2 animate-fade-up">Send Us a Message</h2>
+        <div className="w-12 h-1 bg-gradient-to-r from-primary to-accent rounded-full" />
+      </div>
+      <p className="text-muted-foreground mb-8 animate-fade-up" style={{ animationDelay: "50ms" }}>
+        Fill out the form below and we&apos;ll get back to you soon with a premium proposal.
+      </p>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Name */}
-        <div className="space-y-2">
-          <Label htmlFor="name">Full Name</Label>
+        <div className="space-y-2 animate-fade-up" style={{ animationDelay: "100ms" }}>
+          <Label htmlFor="name" className="text-sm font-semibold text-foreground">Full Name</Label>
           <Input
             id="name"
             name="name"
             placeholder="John Doe"
             required
-            className="bg-secondary/50 border-border focus:border-primary"
+            className="glass-input border-primary/20 text-foreground placeholder:text-muted-foreground/50 focus:border-primary/50 focus:ring-primary/20 h-11 rounded-lg"
           />
         </div>
 
         {/* Email */}
-        <div className="space-y-2">
-          <Label htmlFor="email">Email Address</Label>
+        <div className="space-y-2 animate-fade-up" style={{ animationDelay: "125ms" }}>
+          <Label htmlFor="email" className="text-sm font-semibold text-foreground">Email Address</Label>
           <Input
             id="email"
             name="email"
             type="email"
             placeholder="john@example.com"
             required
-            className="bg-secondary/50 border-border focus:border-primary"
+            className="glass-input border-primary/20 text-foreground placeholder:text-muted-foreground/50 focus:border-primary/50 focus:ring-primary/20 h-11 rounded-lg"
           />
         </div>
 
         {/* Service */}
-        <div className="space-y-2">
-          <Label htmlFor="service">Service Needed</Label>
+        <div className="space-y-2 animate-fade-up" style={{ animationDelay: "150ms" }}>
+          <Label htmlFor="service" className="text-sm font-semibold text-foreground">Service Needed</Label>
           <select
             id="service"
             name="service"
             required
-            className="w-full h-10 px-3 rounded-md bg-secondary/50 border border-border text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+            className="w-full h-11 px-4 rounded-lg glass-input border-primary/20 text-foreground bg-secondary/30 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all duration-300"
           >
             {services.map((service) => (
-              <option key={service.value} value={service.value}>
+              <option key={service.value} value={service.value} className="bg-background">
                 {service.label}
               </option>
             ))}
@@ -115,15 +121,15 @@ export function ContactForm() {
         </div>
 
         {/* Message */}
-        <div className="space-y-2">
-          <Label htmlFor="message">Your Message</Label>
+        <div className="space-y-2 animate-fade-up" style={{ animationDelay: "175ms" }}>
+          <Label htmlFor="message" className="text-sm font-semibold text-foreground">Your Message</Label>
           <Textarea
             id="message"
             name="message"
-            placeholder="Tell us about your project..."
+            placeholder="Tell us about your project and vision..."
             rows={5}
             required
-            className="bg-secondary/50 border-border focus:border-primary resize-none"
+            className="glass-input border-primary/20 text-foreground placeholder:text-muted-foreground/50 focus:border-primary/50 focus:ring-primary/20 rounded-lg resize-none"
           />
         </div>
 
@@ -132,7 +138,8 @@ export function ContactForm() {
           type="submit"
           size="lg"
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300 text-primary-foreground border-0"
+          className="w-full bg-gradient-to-r from-primary via-accent to-primary hover:from-primary/80 hover:via-accent/80 hover:to-primary/80 transition-all duration-300 text-primary-foreground border-0 h-12 rounded-lg font-semibold text-lg group hover:scale-105 animate-fade-up hover-glow"
+          style={{ animationDelay: "200ms" }}
         >
           {isSubmitting ? (
             <>
@@ -141,7 +148,7 @@ export function ContactForm() {
             </>
           ) : (
             <>
-              <Send className="mr-2" size={20} />
+              <Send className="mr-2 group-hover:translate-x-2 transition-transform" size={20} />
               Send Message
             </>
           )}
@@ -149,4 +156,5 @@ export function ContactForm() {
       </form>
     </div>
   )
+}
 }
